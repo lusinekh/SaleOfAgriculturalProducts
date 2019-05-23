@@ -10,8 +10,8 @@ using SaleOfAgriculturalProducts.Data;
 namespace SaleOfAgriculturalProducts.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190523110402_In1")]
-    partial class In1
+    [Migration("20190523170417_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -238,6 +238,8 @@ namespace SaleOfAgriculturalProducts.Migrations
                     b.Property<string>("Quality")
                         .IsRequired();
 
+                    b.Property<bool>("ShowAllow");
+
                     b.HasKey("ProductID");
 
                     b.HasIndex("ProductItmsImageId");
@@ -260,8 +262,7 @@ namespace SaleOfAgriculturalProducts.Migrations
                     b.Property<string>("Path")
                         .IsRequired();
 
-                    b.Property<string>("Size")
-                        .IsRequired();
+                    b.Property<decimal>("Size");
 
                     b.HasKey("ProductItmsImageId");
 

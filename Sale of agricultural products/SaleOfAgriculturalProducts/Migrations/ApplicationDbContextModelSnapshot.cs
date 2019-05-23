@@ -236,6 +236,8 @@ namespace SaleOfAgriculturalProducts.Migrations
                     b.Property<string>("Quality")
                         .IsRequired();
 
+                    b.Property<bool>("ShowAllow");
+
                     b.HasKey("ProductID");
 
                     b.HasIndex("ProductItmsImageId");
@@ -258,8 +260,7 @@ namespace SaleOfAgriculturalProducts.Migrations
                     b.Property<string>("Path")
                         .IsRequired();
 
-                    b.Property<string>("Size")
-                        .IsRequired();
+                    b.Property<decimal>("Size");
 
                     b.HasKey("ProductItmsImageId");
 

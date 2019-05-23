@@ -14,6 +14,7 @@ namespace SaleOfAgriculturalProducts.Models
         public decimal PriceUnit { get; set; }
         public decimal Count { get; set; }
         public string Quality { get; set; }
+        public bool ShowAllow { get; set; }
         public DateTime ProductionTime { get; set; }
         public Guid ProductItmsImageId { get; set; }
         public ProductItmsImage ProductItmsImage { get; set; }

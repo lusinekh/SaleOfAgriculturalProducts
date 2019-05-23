@@ -31,6 +31,7 @@ namespace SaleOfAgriculturalProducts.Data
                 e.Property(b => b.Category).IsRequired();
                 e.Property(b => b.MeasurementUnit).IsRequired();
                 e.Property(b => b.PriceUnit).IsRequired();
+                e.Property(b => b.ShowAllow).IsRequired();
                 e.Property(b => b.Count).IsRequired();
                 e.Property(b => b.Quality).IsRequired();
                 e.Property(b => b.ProductionTime).IsRequired();   

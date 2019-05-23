@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SaleOfAgriculturalProducts.Migrations
 {
-    public partial class In1 : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -60,7 +60,7 @@ namespace SaleOfAgriculturalProducts.Migrations
                     ProductItmsImageId = table.Column<Guid>(nullable: false, defaultValueSql: "(newid())"),
                     Path = table.Column<string>(nullable: false),
                     ImageName = table.Column<string>(nullable: false),
-                    Size = table.Column<string>(nullable: false),
+                    Size = table.Column<decimal>(nullable: false),
                     Exstention = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
@@ -184,6 +184,7 @@ namespace SaleOfAgriculturalProducts.Migrations
                     PriceUnit = table.Column<decimal>(nullable: false),
                     Count = table.Column<decimal>(nullable: false),
                     Quality = table.Column<string>(nullable: false),
+                    ShowAllow = table.Column<bool>(nullable: false),
                     ProductionTime = table.Column<DateTime>(nullable: false),
                     ProductItmsImageId = table.Column<Guid>(nullable: false)
                 },

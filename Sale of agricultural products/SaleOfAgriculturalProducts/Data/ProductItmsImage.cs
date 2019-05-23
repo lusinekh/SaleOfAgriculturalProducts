@@ -11,7 +11,7 @@ namespace SaleOfAgriculturalProducts.Models
 
         public string ImageName { get; set; }
 
-        public string Size { get; set; }
+        public decimal Size { get; set; }
 
         public string Exstention { get; set; }
 
