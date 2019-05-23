@@ -140,7 +140,7 @@ namespace SaleOfAgriculturalProducts.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
-                    b.Property<string>("Adres");
+                    b.Property<string>("Adress");
 
                     b.Property<DateTime>("BirtDate");
 

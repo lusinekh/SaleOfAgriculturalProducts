@@ -16,7 +16,7 @@ namespace SaleOfAgriculturalProducts.Data
 
         public String FhoneNamber { get; set; }
 
-        public String Adres { get; set; }
+        public String Adress { get; set; }
 
         public string Gender { get; set; }
 

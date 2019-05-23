@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SaleOfAgriculturalProducts.Migrations
 {
-    public partial class inital : Migration
+    public partial class In1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,7 +45,7 @@ namespace SaleOfAgriculturalProducts.Migrations
                     LastName = table.Column<string>(nullable: true),
                     BirtDate = table.Column<DateTime>(nullable: false),
                     FhoneNamber = table.Column<string>(nullable: true),
-                    Adres = table.Column<string>(nullable: true),
+                    Adress = table.Column<string>(nullable: true),
                     Gender = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

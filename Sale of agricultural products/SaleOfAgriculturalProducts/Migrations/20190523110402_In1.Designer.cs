@@ -10,8 +10,8 @@ using SaleOfAgriculturalProducts.Data;
 namespace SaleOfAgriculturalProducts.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190523103119_inital")]
-    partial class inital
+    [Migration("20190523110402_In1")]
+    partial class In1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -142,7 +142,7 @@ namespace SaleOfAgriculturalProducts.Migrations
 
                     b.Property<int>("AccessFailedCount");
 
-                    b.Property<string>("Adres");
+                    b.Property<string>("Adress");
 
                     b.Property<DateTime>("BirtDate");
 
