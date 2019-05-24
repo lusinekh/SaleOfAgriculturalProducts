@@ -51,7 +51,7 @@ namespace SaleOfAgriculturalProducts.Data
                 e.Property(b => b.Exstention).IsRequired();
             });
 
-            modelBuilder.Entity<ApplicationUserProduct>().HasKey(sc => new { sc.ApplicationUserId, sc.ProductId });
+            modelBuilder.Entity<ApplicationUserProduct>().HasKey(sc => new {sc.ApplicationUserId,sc.ProductId });
         }
 
     }

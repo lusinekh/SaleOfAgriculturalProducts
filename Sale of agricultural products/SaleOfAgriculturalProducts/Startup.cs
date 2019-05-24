@@ -67,7 +67,7 @@ namespace SaleOfAgriculturalProducts
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=ApplicationUserProducts}/{action=Index}/{id?}");
             });
         }
     }

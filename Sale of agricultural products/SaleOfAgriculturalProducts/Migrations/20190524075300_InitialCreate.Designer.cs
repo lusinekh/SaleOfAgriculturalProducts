@@ -10,8 +10,8 @@ using SaleOfAgriculturalProducts.Data;
 namespace SaleOfAgriculturalProducts.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190523170417_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20190524075300_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
