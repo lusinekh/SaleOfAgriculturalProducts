@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,15 @@ namespace SaleOfAgriculturalProducts.Controllers
     public class ProductItmsImagesController : Controller
     {
         private readonly ApplicationDbContext _context;
+
+
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Admin()
+        {
+            return View();
+        }
+
 
         public ProductItmsImagesController(ApplicationDbContext context)
         {

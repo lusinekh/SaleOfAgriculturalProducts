@@ -41,11 +41,57 @@ namespace SaleOfAgriculturalProducts
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(
+            //        Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddIdentity<ApplicationUser, IdentityRole>()
+            //    .AddDefaultUI(UIFramework.Bootstrap4)
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
+        // public void Configure(IApplicationBuilder app, IHostingEnvironment env, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            //var user = userManager.FindByEmailAsync("john.smith@mail.com").Result;
+            //if (user == null)
+            //{
+            //    user = new ApplicationUser
+            //    {
+            //        UserName = "john.smith@mail.com",
+            //        Email = "john.smith@mail.com",
+            //        EmailConfirmed = true,
+            //    };
+
+            //    var result = userManager.CreateAsync(user, "Mic1234!").Result;
+
+            //    if (result.Succeeded)
+            //    {
+            //        var roleResult = roleManager.CreateAsync(new IdentityRole { Name = "Admin" }).Result;
+
+            //        if (roleResult.Succeeded)
+            //        {
+            //            userManager.AddToRoleAsync(user, "Admin");
+            //        }
+            //        else
+            //        {
+            //            throw new Exception();
+            //        }
+            //    }
+            //    else
+            //    {
+            //        throw new Exception();
+            //    }
+            //}
+
+
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
