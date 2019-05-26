@@ -1,0 +1,99 @@
+﻿@model SaleOfAgriculturalProduct.Data.Product
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MeasurementUnit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MeasurementUnit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceUnit)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PriceUnit)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Count)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Count)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Quality)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Quality)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ShowAllow)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ShowAllow)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductionTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductionTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductItmsImage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductItmsImage.Exstention)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BirtDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BirtDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FhoneNamber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FhoneNamber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Adress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Adress)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProductID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,17 @@
+﻿
+    <@using (Html.BeginForm("PickPdf", "EditPdf", FormMethod.Post, new { id = "fileUploadControl", enctype = "multipart/form-data" }))
+{
+    <input type="file" name="file" class="chooseFileButton" />
+
+    <input type="submit"
+           name="Upload"
+           id="Submit"
+           value="View PDF"
+           class="chooseFileButton"
+           onclick="Validation" />
+    <br><br>
+
+    <p>@ViewBag.Message</p>
+
+    <object id="pdfObject" name="pdfObject" data=@ViewData["FormFile"] type="application/pdf" width="400" height="200"></object>
+}

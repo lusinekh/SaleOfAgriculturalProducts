@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+    <li>
+        @if (User.Identity.IsAuthenticated)
+        {
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-area="" asp-controller="Admin" asp-action="Index">Admin Page</a>
+            }
+        }
+    </li>
