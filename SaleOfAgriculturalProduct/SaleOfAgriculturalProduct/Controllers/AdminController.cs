@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,33 +12,26 @@ namespace SaleOfAgriculturalProduct.Controllers
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
 
-        public AdminController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public AdminController(ApplicationDbContext context)
         {
             _context = context;
-            _userManager = userManager;
         }
 
         // GET: Admin
         public async Task<IActionResult> Index()
-        {
-            var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage).Where(p=>p.ShowAllow==true);
-            return View(await applicationDbContext.ToListAsync());
-        }
-
-
-        public async Task<IActionResult> AllItms()
         {
             var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage).Where(p => p.ShowAllow == false);
             return View(await applicationDbContext.ToListAsync());
         }
 
 
-        public async Task<IActionResult> viewAdmin()
-        {            
-            return View();
+        public async Task<IActionResult> ChangeAktivity()
+        {
+            var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage).Where(p => p.ShowAllow == true);
+            return View(await applicationDbContext.ToListAsync());
         }
+
 
         // GET: Admin/Details/5
         public async Task<IActionResult> Details(Guid? id)
@@ -108,8 +100,7 @@ namespace SaleOfAgriculturalProduct.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("ProductID,Category,MeasurementUnit,PriceUnit,Count,Quality,ShowAllow,ProductionTime,ProductItmsImageId,FirstName,LastName,BirtDate,FhoneNamber,Adress")] Product product)
-        { 
-
+        {
             if (id != product.ProductID)
             {
                 return NotFound();
@@ -119,10 +110,6 @@ namespace SaleOfAgriculturalProduct.Controllers
             {
                 try
                 {
-                  //  var newproduct = await _context.Products.FindAsync(id);
-                  //var e= product.Category;
-                    //product.Category ="hhhhhhhh";
-
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }

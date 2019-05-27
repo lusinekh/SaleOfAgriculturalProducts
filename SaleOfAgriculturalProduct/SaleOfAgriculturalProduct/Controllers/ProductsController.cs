@@ -28,7 +28,7 @@ namespace SaleOfAgriculturalProduct.Controllers
 
         // GET: Products
         public async Task<IActionResult> Index(string sort)
-        {         
+        {
             var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
 
             var e = applicationDbContext.Where(p => p.ShowAllow == false).Select(X =>
@@ -82,7 +82,7 @@ namespace SaleOfAgriculturalProduct.Controllers
                              }
                     );
             return View(await e.ToListAsync());
-        }     
+        }
 
 
         public async Task<IActionResult> SortApple(string sort)
@@ -293,7 +293,7 @@ namespace SaleOfAgriculturalProduct.Controllers
             {
                 return NotFound();
             }
-              
+
             return View(product);
         }
         // GET: Products/Create
@@ -322,7 +322,7 @@ namespace SaleOfAgriculturalProduct.Controllers
                 product.BirtDate = user.BirtDate;
                 product.ShowAllow = true;
                 _context.Add(product);
-                await _context.SaveChangesAsync();   
+                await _context.SaveChangesAsync();
 
 
                 return RedirectToAction(nameof(Index));

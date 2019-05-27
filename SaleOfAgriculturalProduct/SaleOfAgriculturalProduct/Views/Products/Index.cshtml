@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-    <h2>All Products</h2>
+<h2>All Products</h2>
 
 
 @*<div class="pimage">
@@ -19,7 +19,7 @@
 
     body {
         /*background-image: url("https://media.giphy.com/media/3xz2BVxzjZVnGdgGVW/giphy.gif");*/
-         background-image: url("https://media.giphy.com/media/fnmgDzaOgIO6P293Hu/giphy.gif");
+        background-image: url("https://media.giphy.com/media/fnmgDzaOgIO6P293Hu/giphy.gif");
         background-color: #cccccc;
     }
 </style>
@@ -49,8 +49,8 @@
                     @Html.DisplayNameFor(model => model.Quality)
                 </th>
                 @*<th>
-                    @Html.DisplayNameFor(model => model.ShowAllow)
-                </th>*@
+                        @Html.DisplayNameFor(model => model.ShowAllow)
+                    </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.ProductionTime)
                 </th>
@@ -58,7 +58,7 @@
                     @Html.DisplayNameFor(model => model.ProductItmsImage)
                 </th>
                 <th>
-                    <p style="color:navy;"> About Seller</p>                   
+                    <p style="color:navy;"> About Seller</p>
                 </th>
 
             </tr>
@@ -66,41 +66,41 @@
         <tbody>
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MeasurementUnit)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PriceUnit)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Count)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quality)
-                </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.ShowAllow)
-                </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductionTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductItmsImage.Exstention)
-                </td> 
-            <td>
-                @Html.Partial("UserDetails", item)
-              
-            </td>
-                @*<td>
-            <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
-            <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
-            <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
-        </td>*@
-            </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MeasurementUnit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PriceUnit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Count)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quality)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.ShowAllow)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductionTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductItmsImage.Exstention)
+                    </td>
+                    <td>
+                        @Html.Partial("UserDetails", item)
+
+                    </td>
+                    @*<td>
+                            <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                        </td>*@
+                </tr>
             }
         </tbody>
     </table>

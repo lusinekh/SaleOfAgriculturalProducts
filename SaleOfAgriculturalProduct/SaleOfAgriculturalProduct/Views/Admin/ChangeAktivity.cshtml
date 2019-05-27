@@ -2,7 +2,7 @@
 
 
 
-
+<h2>Change Category Activity</h2>
 
 <style>
     img {
@@ -11,20 +11,14 @@
 
     body {
         /*background-image: url("https://media.giphy.com/media/3xz2BVxzjZVnGdgGVW/giphy.gif");*/
-        background-image: url("https://media.giphy.com/media/d2jjHeKDynBohPtm/giphy.gif");
+        background-image: url("https://media.giphy.com/media/fnmgDzaOgIO6P293Hu/giphy.gif");
         background-color: #cccccc;
     }
 </style>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
-<li><a asp-area="" asp-controller="Admin" asp-action="ChangeAktivity">Change Aktivity</a></li>
-
-
-<h2>AllItms</h2>  
-
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <div class="text-left" style="color:purple;" id="borderimg">
     <table class="table">
         <thead>
@@ -92,7 +86,7 @@
 
                     </td>
                     <td>
-                        @*<a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |*@
+                        <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
                         <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
                     </td>
@@ -102,4 +96,4 @@
     </table>
 </div>
 
-
+li><a asp-area="" asp-controller="Admin" asp-action="Index">GoAdminPage</a></li>

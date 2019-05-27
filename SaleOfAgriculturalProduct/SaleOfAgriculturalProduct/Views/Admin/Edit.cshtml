@@ -18,15 +18,11 @@
                 <input asp-for="Category" class="form-control" />
                 <span asp-validation-for="Category" class="text-danger"></span>
             </div>
-
-
             <div class="form-group">
                 <label asp-for="MeasurementUnit" class="control-label"></label>
                 <input asp-for="MeasurementUnit" class="form-control" />
                 <span asp-validation-for="MeasurementUnit" class="text-danger"></span>
             </div>
-
-
             <div class="form-group">
                 <label asp-for="PriceUnit" class="control-label"></label>
                 <input asp-for="PriceUnit" class="form-control" />
@@ -74,12 +70,12 @@
                 <input asp-for="BirtDate" class="form-control" />
                 <span asp-validation-for="BirtDate" class="text-danger"></span>
             </div>
-            
             <div class="form-group">
                 <label asp-for="FhoneNamber" class="control-label"></label>
                 <input asp-for="FhoneNamber" class="form-control" />
                 <span asp-validation-for="FhoneNamber" class="text-danger"></span>
-            </div>*<div class="form-group">
+            </div>
+            <div class="form-group">
                 <label asp-for="Adress" class="control-label"></label>
                 <input asp-for="Adress" class="form-control" />
                 <span asp-validation-for="Adress" class="text-danger"></span>
@@ -92,8 +88,6 @@
 </div>
 
 <div>
-    <div>
-        <a asp-action="AllItms">Back to List</a>
-    </div>
+    <a asp-action="Index">Back to List</a>
 </div>
 

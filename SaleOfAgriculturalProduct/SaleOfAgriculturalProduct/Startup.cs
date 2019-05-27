@@ -14,7 +14,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SaleOfAgriculturalProduct.Services.ProductItmsImageService;
 using SaleOfAgriculturalProduct.Services.ProductItemService;
-using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace SaleOfAgriculturalProduct
 {
@@ -37,9 +36,6 @@ namespace SaleOfAgriculturalProduct
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
-
-
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -52,7 +48,7 @@ namespace SaleOfAgriculturalProduct
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,IServiceProvider service)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -77,9 +73,6 @@ namespace SaleOfAgriculturalProduct
                     name: "default",
                     template: "{controller=Products}/{action=Index}/{id?}");
             });
-
-           
-        }    
-
+        }
     }
 }
