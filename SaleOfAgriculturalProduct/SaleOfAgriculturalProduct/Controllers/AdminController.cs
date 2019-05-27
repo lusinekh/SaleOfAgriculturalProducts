@@ -29,6 +29,13 @@ namespace SaleOfAgriculturalProduct.Controllers
         }
 
 
+        public async Task<IActionResult> AllItms()
+        {
+            var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage).Where(p => p.ShowAllow == false);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
+
         public async Task<IActionResult> viewAdmin()
         {            
             return View();

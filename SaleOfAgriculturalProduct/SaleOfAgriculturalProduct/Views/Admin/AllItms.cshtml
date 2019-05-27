@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<SaleOfAgriculturalProduct.Data.Product>
+    @{
+    ViewData["Title"] = "AllItms";
+    }
 
-
-
+    <h2>AllItms</h2>
 
 
     <style>
@@ -11,53 +13,51 @@
 
         body {
             /*background-image: url("https://media.giphy.com/media/3xz2BVxzjZVnGdgGVW/giphy.gif");*/
-            background-image: url("https://media.giphy.com/media/d2jjHeKDynBohPtm/giphy.gif");
+            background-image: url("https://media.giphy.com/media/fnmgDzaOgIO6P293Hu/giphy.gif");
             background-color: #cccccc;
         }
     </style>
 
-@{
-    ViewData["Title"] = "Index";
-}
 
-<h2>Change Category Activity</h2>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <div class="text-left" style="color:purple;" id="borderimg">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Category)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MeasurementUnit)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PriceUnit)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Count)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Quality)
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.ShowAllow)
+                        </th>*@
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductionTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProductItmsImage)
+                    </th>
+                    <th>
+                        <p style="color:navy;"> About Seller</p>
+                    </th>
 
-<div class="text-left" style="color:purple;" id="borderimg">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Category)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.MeasurementUnit)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PriceUnit)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Count)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Quality)
-                </th>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.ShowAllow)
-                    </th>*@
-                <th>
-                    @Html.DisplayNameFor(model => model.ProductionTime)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ProductItmsImage)
-                </th>
-                <th>
-                    <p style="color:navy;"> About Seller</p>
-                </th>
-
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
             {
                 <tr>
                     <td>
@@ -95,8 +95,8 @@
                     </td>
                 </tr>
             }
-        </tbody>
-    </table>
-</div>
+            </tbody>
+        </table>
+    </div>
 
-<li><a asp-area="" asp-controller="Admin" asp-action="viewAdmin">GoAdminPage</a></li>
+    <li><a asp-area="" asp-controller="Admin" asp-action="viewAdmin">GoAdminPage</a></li>
