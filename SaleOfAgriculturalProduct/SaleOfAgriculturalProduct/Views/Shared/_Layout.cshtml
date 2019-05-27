@@ -39,7 +39,10 @@
                     <li><a asp-area="" asp-controller="Products" asp-action="SortPotato">Potato</a></li>
                     <li><a asp-area="" asp-controller="Products" asp-action="SortGreens">Greens</a></li>
                     <li><a asp-area="" asp-controller="Products" asp-action="SortBent">Bent</a></li>
-                    <li><a asp-area="" asp-controller="Admin" asp-action="Index">AdminPage</a></li>
+                    @if(User.IsInRole("Admin"))
+                    {
+                        <li><a asp-area="" asp-controller="Admin" asp-action="Index">AdminPage</a></li>
+                    }
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
