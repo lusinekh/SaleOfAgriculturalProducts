@@ -80,14 +80,14 @@
 }, "Choose a MeasurementUnit", new { @class = "form-control" })
 
             <span asp-validation-for="Quality" class="text-danger"></span>
-        </div>
+        @*</div>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
                         <input asp-for="ShowAllow" /> @Html.DisplayNameFor(model => model.ShowAllow)
                     </label>
                 </div>
-            </div>
+            </div>*@
             <div class="form-group">
                 <label asp-for="ProductionTime" class="control-label"></label>
                 <input asp-for="ProductionTime" class="form-control" />

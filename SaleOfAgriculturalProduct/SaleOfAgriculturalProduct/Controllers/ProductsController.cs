@@ -29,42 +29,37 @@ namespace SaleOfAgriculturalProduct.Controllers
         // GET: Products
         public async Task<IActionResult> Index(string sort)
         {         
-            var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);         
+            var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
 
-            if (sort == "countasc")
-            {
-              var e=  applicationDbContext.OrderBy(p => p.Count);
-                return View(await e.ToListAsync());
-            }
-            if (sort == "Apple")
-            {
-                var e = applicationDbContext.Where(p => p.Category == "Apple").OrderBy(p=>p.Count).OrderBy(p=>p.PriceUnit).Select(X =>
+            var e = applicationDbContext.Where(p => p.ShowAllow == false).Select(X =>
 
-                    new Product
-                    {
-                      Category=X.Category, 
-                      MeasurementUnit=X.MeasurementUnit, 
-                      PriceUnit=X.PriceUnit,
-                      Count=X.Count, 
-                      Quality=X.Quality,         
-                      ProductionTime=X.ProductionTime, 
-                      ProductItmsImageId=X.ProductItmsImageId,
-                      ProductItmsImage=X.ProductItmsImage,
-                      FirstName=X.FirstName, 
-                      LastName=X.LastName, 
-                      BirtDate=X.BirtDate, 
-                      FhoneNamber=X.FhoneNamber, 
-                      Adress=X.Adress    }
+                             new Product
+                             {
+                                 Category = X.Category,
+                                 MeasurementUnit = X.MeasurementUnit,
+                                 PriceUnit = X.PriceUnit,
+                                 Count = X.Count,
+                                 Quality = X.Quality,
+                                 ProductionTime = X.ProductionTime,
+                                 ProductItmsImageId = X.ProductItmsImageId,
+                                 ProductItmsImage = X.ProductItmsImage,
+                                 FirstName = X.FirstName,
+                                 LastName = X.LastName,
+                                 BirtDate = X.BirtDate,
+                                 FhoneNamber = X.FhoneNamber,
+                                 Adress = X.Adress
+                             }
                     );
-                return View(await e.ToListAsync());
-            }
-            return View(await applicationDbContext.ToListAsync());
+
+
+
+            return View(await e.ToListAsync());
         }
 
         public async Task<IActionResult> SortApple(string sort)
         {
             var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
-            var e = applicationDbContext.Where(p => p.Category == "Apple").OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
+            var e = applicationDbContext.Where(p => p.Category == "Apple").Where(p => p.ShowAllow == false).OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
 
                         new Product
                         {
@@ -89,7 +84,7 @@ namespace SaleOfAgriculturalProduct.Controllers
         public async Task<IActionResult> SortApricote(string sort)
         {
             var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
-            var e = applicationDbContext.Where(p => p.Category == "Apricote").OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
+            var e = applicationDbContext.Where(p => p.Category == "Apricote").Where(p => p.ShowAllow == false).OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
 
                         new Product
                         {
@@ -113,7 +108,7 @@ namespace SaleOfAgriculturalProduct.Controllers
         public async Task<IActionResult> SortBananas(string sort)
         {
             var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
-            var e = applicationDbContext.Where(p => p.Category == "Bananas").OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
+            var e = applicationDbContext.Where(p => p.Category == "Bananas").Where(p => p.ShowAllow == false).OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
 
                         new Product
                         {
@@ -137,7 +132,7 @@ namespace SaleOfAgriculturalProduct.Controllers
         public async Task<IActionResult> SortWatermelon(string sort)
         {
             var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
-            var e = applicationDbContext.Where(p => p.Category == "Watermelon").OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
+            var e = applicationDbContext.Where(p => p.Category == "Watermelon").Where(p => p.ShowAllow == false).OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
 
                         new Product
                         {
@@ -161,7 +156,7 @@ namespace SaleOfAgriculturalProduct.Controllers
         public async Task<IActionResult> SortCarrot(string sort)
         {
             var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
-            var e = applicationDbContext.Where(p => p.Category == "Carrot").OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
+            var e = applicationDbContext.Where(p => p.Category == "Carrot").Where(p => p.ShowAllow == false).OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
 
                         new Product
                         {
@@ -185,7 +180,7 @@ namespace SaleOfAgriculturalProduct.Controllers
         public async Task<IActionResult> SortPotato(string sort)
         {
             var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
-            var e = applicationDbContext.Where(p => p.Category == "Potato").OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
+            var e = applicationDbContext.Where(p => p.Category == "Potato").Where(p => p.ShowAllow == false).OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
 
                         new Product
                         {
@@ -209,7 +204,7 @@ namespace SaleOfAgriculturalProduct.Controllers
         public async Task<IActionResult> SortGreens(string sort)
         {
             var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
-            var e = applicationDbContext.Where(p => p.Category == "Greens").OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
+            var e = applicationDbContext.Where(p => p.Category == "Greens").Where(p => p.ShowAllow == false).OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
 
                         new Product
                         {
@@ -233,7 +228,7 @@ namespace SaleOfAgriculturalProduct.Controllers
         public async Task<IActionResult> SortBent(string sort)
         {
             var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
-            var e = applicationDbContext.Where(p => p.Category == "Bent").OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
+            var e = applicationDbContext.Where(p => p.Category == "Bent").Where(p => p.ShowAllow == true).OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
 
                         new Product
                         {
@@ -296,6 +291,7 @@ namespace SaleOfAgriculturalProduct.Controllers
                 product.FhoneNamber = user.FhoneNamber;
                 product.Adress = user.Adress;
                 product.BirtDate = user.BirtDate;
+                product.ShowAllow = true;
                 _context.Add(product);
                 await _context.SaveChangesAsync();   
 

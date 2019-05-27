@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SaleOfAgriculturalProduct</title>
     
-
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment exclude="Development">
@@ -32,16 +32,18 @@
            
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a asp-area=""  asp-controller="Products" asp-action="SortApple">Apple</a></li>
+                        <li><a asp-area="" asp-controller="Products" asp-action="SortApple">Apple</a></li>
                         <li><a asp-area="" asp-controller="Products" asp-action="SortApricote">Apricote</a></li>
                         <li><a asp-area="" asp-controller="Products" asp-action="SortBananas">Bananas</a></li>
 
                         <li><a asp-area="" asp-controller="Products" asp-action="SortWatermelon">Watermelon</a></li>
                         <li><a asp-area="" asp-controller="Products" asp-action="SortCarrot">Carrot</a></li>
                         <li><a asp-area="" asp-controller="Products" asp-action="SortPotato">Potato</a></li>
-
                         <li><a asp-area="" asp-controller="Products" asp-action="SortGreens">Greens</a></li>
                         <li><a asp-area="" asp-controller="Products" asp-action="SortBent">Bent</a></li>
+
+                        <li><a asp-area="" asp-controller="Admin" asp-action="Index">AdminPage</a></li>
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
