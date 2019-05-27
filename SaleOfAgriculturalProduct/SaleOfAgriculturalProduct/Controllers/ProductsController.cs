@@ -56,6 +56,35 @@ namespace SaleOfAgriculturalProduct.Controllers
             return View(await e.ToListAsync());
         }
 
+
+
+        public async Task<IActionResult> AllItms(string sort)
+        {
+            var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
+
+            var e = applicationDbContext.Where(p => p.ShowAllow == false).Select(X =>
+
+                             new Product
+                             {
+                                 Category = X.Category,
+                                 MeasurementUnit = X.MeasurementUnit,
+                                 PriceUnit = X.PriceUnit,
+                                 Count = X.Count,
+                                 Quality = X.Quality,
+                                 ProductionTime = X.ProductionTime,
+                                 ProductItmsImageId = X.ProductItmsImageId,
+                                 ProductItmsImage = X.ProductItmsImage,
+                                 FirstName = X.FirstName,
+                                 LastName = X.LastName,
+                                 BirtDate = X.BirtDate,
+                                 FhoneNamber = X.FhoneNamber,
+                                 Adress = X.Adress
+                             }
+                    );
+            return View(await e.ToListAsync());
+        }     
+
+
         public async Task<IActionResult> SortApple(string sort)
         {
             var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
