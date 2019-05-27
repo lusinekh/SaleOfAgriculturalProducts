@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,41 +13,25 @@ namespace SaleOfAgriculturalProduct.Controllers
     public class AdminController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public AdminController(ApplicationDbContext context)
+        public AdminController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Admin
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage);
-
-           
-            {
-                var e = applicationDbContext.Where(p => p.Category == "Apple").OrderBy(p => p.Count).OrderBy(p => p.PriceUnit).Select(X =>
-
-                        new Product
-                        {
-                            Category = X.Category,
-                            MeasurementUnit = X.MeasurementUnit,
-                            PriceUnit = X.PriceUnit,
-                            Count = X.Count,
-                            Quality = X.Quality,
-                            ProductionTime = X.ProductionTime,
-                            ProductItmsImageId = X.ProductItmsImageId,
-                            ProductItmsImage = X.ProductItmsImage,
-                            FirstName = X.FirstName,
-                            LastName = X.LastName,
-                            BirtDate = X.BirtDate,
-                            FhoneNamber = X.FhoneNamber,
-                            Adress = X.Adress
-                        }
-                    ).Where(p => p.ShowAllow == false);
-                return View(await e.ToListAsync());
-            }
+            var applicationDbContext = _context.Products.Include(p => p.ProductItmsImage).Where(p=>p.ShowAllow==true);
             return View(await applicationDbContext.ToListAsync());
+        }
+
+
+        public async Task<IActionResult> viewAdmin()
+        {            
+            return View();
         }
 
         // GET: Admin/Details/5
@@ -116,7 +101,8 @@ namespace SaleOfAgriculturalProduct.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("ProductID,Category,MeasurementUnit,PriceUnit,Count,Quality,ShowAllow,ProductionTime,ProductItmsImageId,FirstName,LastName,BirtDate,FhoneNamber,Adress")] Product product)
-        {
+        { 
+
             if (id != product.ProductID)
             {
                 return NotFound();
@@ -126,6 +112,10 @@ namespace SaleOfAgriculturalProduct.Controllers
             {
                 try
                 {
+                  //  var newproduct = await _context.Products.FindAsync(id);
+                  //var e= product.Category;
+                    //product.Category ="hhhhhhhh";
+
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }

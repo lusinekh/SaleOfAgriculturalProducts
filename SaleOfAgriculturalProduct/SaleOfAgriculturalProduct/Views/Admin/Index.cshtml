@@ -15,33 +15,17 @@
 
 
 @{
-        ViewData["Title"] = "Index";
-    }
+    ViewData["Title"] = "Index";
+}
 
 <h2>Index</h2>
 
 
-<div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
-        <li><a asp-area="" asp-controller="Products" asp-action="SortApple">Apple</a></li>
-        <li><a asp-area="" asp-controller="Products" asp-action="SortApricote">Apricote</a></li>
-        <li><a asp-area="" asp-controller="Products" asp-action="SortBananas">Bananas</a></li>
 
-        <li><a asp-area="" asp-controller="Products" asp-action="SortWatermelon">Watermelon</a></li>
-        <li><a asp-area="" asp-controller="Products" asp-action="SortCarrot">Carrot</a></li>
-        <li><a asp-area="" asp-controller="Products" asp-action="SortPotato">Potato</a></li>
-        <li><a asp-area="" asp-controller="Products" asp-action="SortGreens">Greens</a></li>
-        <li><a asp-area="" asp-controller="Products" asp-action="SortBent">Bent</a></li>
 
-        <li><a asp-area="" asp-controller="Admin" asp-action="Index">AdminPage</a></li>
 
-    </ul>
-    
-</div>
 
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+<div class="text-left" style="color:purple;" id="borderimg">
     <table class="table">
         <thead>
             <tr>
@@ -60,9 +44,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Quality)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ShowAllow)
-                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.ShowAllow)
+                    </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.ProductionTime)
                 </th>
@@ -70,21 +54,9 @@
                     @Html.DisplayNameFor(model => model.ProductItmsImage)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.FirstName)
+                    <p style="color:navy;"> About Seller</p>
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.LastName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.BirtDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.FhoneNamber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Adress)
-                </th>
-                <th></th>
+
             </tr>
         </thead>
         <tbody>
@@ -106,9 +78,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Quality)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ShowAllow)
-                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.ShowAllow)
+                        </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.ProductionTime)
                     </td>
@@ -116,19 +88,8 @@
                         @Html.DisplayFor(modelItem => item.ProductItmsImage.Exstention)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BirtDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FhoneNamber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Adress)
+                        @Html.Partial("UserDetails", item)
+
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
@@ -139,3 +100,6 @@
             }
         </tbody>
     </table>
+</div>
+
+
