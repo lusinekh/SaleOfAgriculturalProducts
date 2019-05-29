@@ -1,0 +1,97 @@
+﻿@model SaleOfAgriculturalProduct1.Data.ProducCategoryview
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+<style>
+    body {
+        background-color: lightgreen;
+    }
+</style>
+
+@foreach (var item in Model.Categorys)
+{
+    <a asp-action=Index asp-route-sort="@item.CategoryName"><option>@Html.DisplayFor(modelItem => item.CategoryName)</option></a>
+}   
+<a asp-area="" asp-controller="SaleOfAgriculturalProduct" asp-action="Create" class="btn btn-success">Create New</a>
+<a asp-area="" asp-controller="Products" asp-action="UserAddProducts" class="btn btn-success">About user Add products</a>
+
+<table class="table">
+    <div i>
+        <thead>
+            <tr>
+                <th>
+                    Category
+                </th>
+                <th>
+                    PriceUnit
+
+                </th>
+
+                <th>
+                    ProductionTime
+                </th>
+                <th>
+                    ProductItmsImage
+                </th>
+                <th>
+                    Count
+                </th>
+                <th>
+                    MeasureUnit
+                </th>
+                <th>
+                    Qualitys
+                </th>
+
+                <th>
+
+                    About Saler
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+    </div>
+    <tbody>
+        @foreach (var item in Model.Products)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceUnit)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductionTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductItmsImage.Exstention)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Count)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MeasureUnit.Unit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qualitys.QualityName)
+                </td>
+                <td>
+                    @Html.Partial("UserDetails", item)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ProductID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

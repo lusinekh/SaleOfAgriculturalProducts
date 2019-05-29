@@ -1,0 +1,98 @@
+﻿@model IEnumerable<SaleOfAgriculturalProduct1.Data.Product>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PriceUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShowAllow)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductionTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductItmsImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MeasureUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Qualitys)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FhoneNamber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationUserGuid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Count)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowAllow)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductionTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductItmsImage.Exstention)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeasureUnit.Unit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualitys.QualityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FhoneNamber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationUserGuid)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

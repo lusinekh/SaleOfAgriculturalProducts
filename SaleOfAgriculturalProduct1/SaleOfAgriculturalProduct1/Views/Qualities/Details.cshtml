@@ -1,0 +1,24 @@
+﻿@model SaleOfAgriculturalProduct1.Data.Quality
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Quality</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QualityName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QualityName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.QualityId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

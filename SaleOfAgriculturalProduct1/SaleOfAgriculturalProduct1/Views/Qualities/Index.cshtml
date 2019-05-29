@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SaleOfAgriculturalProduct1.Data.Quality>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QualityName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QualityName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.QualityId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.QualityId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.QualityId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<p>
+    <a asp-area="" asp-controller="SaleOfAgriculturalProduct" class="btn btn-success" asp-action="Index"> Admin Page</a>
+</p>
