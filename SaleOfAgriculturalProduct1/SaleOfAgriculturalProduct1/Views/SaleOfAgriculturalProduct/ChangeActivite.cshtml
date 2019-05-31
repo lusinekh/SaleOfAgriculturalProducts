@@ -1,12 +1,19 @@
 ﻿@model IEnumerable<SaleOfAgriculturalProduct1.Data.Product>
 
+@{
+    ViewData["Title"] = "ChangeActivite";
+}
+
     <style>
         body {
-            background-color: lightgreen;
+            background-color:lightyellow;
         }
     </style>
 
-<table class="table table-bordered table-striped" style="background-color:darkseagreen">
+<h2>ChangeActivite</h2>
+
+
+<table class="table table-bordered table-striped" style="background-color:mistyrose">
     <thead>
         <tr>
 
@@ -35,7 +42,6 @@
             <th>
                 About Saler
             </th>
-
 
             <th></th>
         </tr>
@@ -82,5 +88,5 @@
     </tbody>
 </table>
 <p>
-    <a asp-area="" asp-controller="Products" class="btn btn-success" asp-action="Index"> User Page</a>
+    <a asp-area="" asp-controller="SaleOfAgriculturalProduct" class="btn btn-success" asp-action="Index"> Admin Page</a>
 </p>

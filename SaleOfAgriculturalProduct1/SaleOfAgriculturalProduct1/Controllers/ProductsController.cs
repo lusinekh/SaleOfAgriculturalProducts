@@ -19,8 +19,7 @@ namespace SaleOfAgriculturalProduct1.Controllers
         {
             _context = context;
             _userManager = userManager;
-        }        
-
+        }       
         public async Task<IActionResult> Index(string sort)
         {
             var applicationDbContext = _context.Products.Include(p => p.Category).Include(p => p.MeasureUnit).Include(p => p.ProductItmsImage).Include(p => p.Qualitys).Where(p=>p.ShowAllow==true);
@@ -111,7 +110,7 @@ namespace SaleOfAgriculturalProduct1.Controllers
                 product.LastName = user.LastName;
                 product.FhoneNamber = user.FhoneNamber;
                 product.Adress = user.Adress;
-                product.ShowAllow = true;
+                product.ShowAllow = false;
                 product.ApplicationUserGuid = user.Id;
                 _context.Add(product);
                 await _context.SaveChangesAsync();

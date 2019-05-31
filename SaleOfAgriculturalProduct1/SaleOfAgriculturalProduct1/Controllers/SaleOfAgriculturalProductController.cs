@@ -24,7 +24,13 @@ namespace SaleOfAgriculturalProduct1.Controllers
         // GET: SaleOfAgriculturalProduct
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Products.Include(p => p.Category).Include(p => p.MeasureUnit).Include(p => p.ProductItmsImage).Include(p => p.Qualitys);
+            var applicationDbContext = _context.Products.Include(p => p.Category).Include(p => p.MeasureUnit).Include(p => p.ProductItmsImage).Include(p => p.Qualitys).Where(p=>p.ShowAllow==true);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> ChangeActivite()
+        {
+            var applicationDbContext = _context.Products.Include(p => p.Category).Include(p => p.MeasureUnit).Include(p => p.ProductItmsImage).Include(p => p.Qualitys).Where(p => p.ShowAllow == false);
             return View(await applicationDbContext.ToListAsync());
         }      
 

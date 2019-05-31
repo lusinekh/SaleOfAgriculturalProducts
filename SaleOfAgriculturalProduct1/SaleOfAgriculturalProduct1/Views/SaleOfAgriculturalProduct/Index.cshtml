@@ -4,96 +4,99 @@
     ViewData["Title"] = "Index";
 }
 
-    <style>
-        body {
-            background-color: mediumspringgreen;
-        }   
+<style>
+    body {
+        background-color: rosybrown;
+    }
+</style>
 
-    </style>
+<h2>     Admin Page <span class="glyphicon glyphicon-user"></span></h2>  
+<p></p>
+<p></p>
+<p></p>
 
-<h2>Admin Page</h2>
-
-<div >
+<div class="container">
     <a asp-area="" asp-controller="Qualities" class="btn btn-success" asp-action="Index">About Qualities</a>
     <a asp-area="" asp-controller="MeasurementUnits" class="btn btn-success" asp-action="Index">About MeasurementUnitsr</a>
     <a asp-area="" asp-controller="ProductItmsImages" class="btn btn-success" asp-action="Index">About Images</a>
     <a asp-area="" asp-controller="Categories" class="btn btn-success" asp-action="Index">About Categories</a>
-<div/>
-
-<p>
+    <a asp-area="" asp-controller="SaleOfAgriculturalProduct" class="btn btn-success" asp-action="ChangeActivite">ChangeActivite</a>
     <a asp-action="Create" class="btn btn-success">Create New ProductItm</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
+    <div />
+    <p> </p>   
+    <table class="table table-bordered table-striped" style="background-color:antiquewhite">
+        <thead>
+            <tr>
 
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PriceUnit)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Count)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductionTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductItmsImage)
-            </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Category)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PriceUnit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Count)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductionTime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductItmsImage)
+                </th>
 
-            <th>
-                @Html.DisplayNameFor(model => model.MeasureUnit)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Qualitys)
-            </th>
-            <th>
-               About Saler
-            </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MeasureUnit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Qualitys)
+                </th>
+                <th>
+                    About Saler
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
 
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PriceUnit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Count)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductionTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductItmsImage.Exstention)
+                    </td>
 
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MeasureUnit.Unit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Qualitys.QualityName)
+                    </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PriceUnit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Count)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductionTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductItmsImage.Exstention)
-            </td>
+                    <td>
+                        @Html.Partial("UserDetails", item)
+                    </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.MeasureUnit.Unit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Qualitys.QualityName)
-            </td>
-
-            <td>
-                @Html.Partial("UserDetails", item)
-            </td>
-
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ProductID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>
+        <a asp-area="" asp-controller="Products" class="btn btn-success" asp-action="Index"> User Page</a>
+    </p>

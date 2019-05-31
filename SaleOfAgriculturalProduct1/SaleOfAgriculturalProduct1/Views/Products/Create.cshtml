@@ -22,18 +22,19 @@
                 <input asp-for="Count" class="form-control" />
                 <span asp-validation-for="Count" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <div class="checkbox">
                     <label>
                         <input asp-for="ShowAllow" /> @Html.DisplayNameFor(model => model.ShowAllow)
                     </label>
                 </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProductionTime" class="control-label"></label>
-                <input asp-for="ProductionTime" class="form-control" />
-                <span asp-validation-for="ProductionTime" class="text-danger"></span>
-            </div>
+            </div>*@
+        <div class="form-group">
+            <label asp-for="ProductionTime" class="control-label"></label>
+            <input asp-for="ProductionTime" type="date" class="form-control" />
+            @*<input asp-for="ProductionTime" class="form-control" />*@
+            <span asp-validation-for="ProductionTime" class="text-danger"></span>
+        </div>
             <div class="form-group">
                 <label asp-for="ProductItmsImageId" class="control-label"></label>
                 <select asp-for="ProductItmsImageId" class ="form-control" asp-items="ViewBag.ProductItmsImageId"></select>
@@ -50,7 +51,7 @@
                 <label asp-for="QualityId" class="control-label"></label>
                 <select asp-for="QualityId" class ="form-control" asp-items="ViewBag.QualityId"></select>
             </div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
@@ -74,7 +75,7 @@
                 <label asp-for="ApplicationUserGuid" class="control-label"></label>
                 <input asp-for="ApplicationUserGuid" class="form-control" />
                 <span asp-validation-for="ApplicationUserGuid" class="text-danger"></span>
-            </div>
+            </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>

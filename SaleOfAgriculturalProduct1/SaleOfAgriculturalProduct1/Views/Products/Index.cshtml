@@ -4,94 +4,123 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
 <style>
     body {
         background-color: lightgreen;
     }
 </style>
 
-@foreach (var item in Model.Categorys)
-{
-    <a asp-action=Index asp-route-sort="@item.CategoryName"><option>@Html.DisplayFor(modelItem => item.CategoryName)</option></a>
-}   
-<a asp-area="" asp-controller="SaleOfAgriculturalProduct" asp-action="Create" class="btn btn-success">Create New</a>
-<a asp-area="" asp-controller="Products" asp-action="UserAddProducts" class="btn btn-success">About user Add products</a>
-
-<table class="table">
-    <div i>
-        <thead>
-            <tr>
-                <th>
-                    Category
-                </th>
-                <th>
-                    PriceUnit
-
-                </th>
-
-                <th>
-                    ProductionTime
-                </th>
-                <th>
-                    ProductItmsImage
-                </th>
-                <th>
-                    Count
-                </th>
-                <th>
-                    MeasureUnit
-                </th>
-                <th>
-                    Qualitys
-                </th>
-
-                <th>
-
-                    About Saler
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-    </div>
-    <tbody>
-        @foreach (var item in Model.Products)
+<tr></tr> <div class="dropdown">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        Sort By Category
+    </button>
+    <div class="dropdown-menu">
+        @foreach (var item in Model.Categorys)
         {
-
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PriceUnit)
-                </td>
-
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductionTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductItmsImage.Exstention)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Count)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MeasureUnit.Unit)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Qualitys.QualityName)
-                </td>
-                <td>
-                    @Html.Partial("UserDetails", item)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.ProductID">Details</a>
-                </td>
-            </tr>
+            <a class="dropdown-item" href="#"><a asp-action=Index asp-route-sort="@item.CategoryName"><option>@Html.DisplayFor(modelItem => item.CategoryName)</option></a></a>
         }
-    </tbody>
-</table>
+    </div>
+</div>
+<p></p>
+<p></p>
+<p></p>
+<body>
+
+    <div class="btn-group-vertical">
+
+    <img src="images/Autumn.jpg" class="img-responsive" alt="Cinque Terre" alt="Cinque Terre" width="250" height="100"> 
+
+</div>
+</body>
+<p></p>
+<p></p>
+<p></p>
+
+<p></p>
+<p></p>
+<p></p>
+
+<span class="border">    
+    <div class="container">
+
+        <a asp-area="" asp-controller="Products" asp-action="Create" class="btn btn-success">Create New</a>
+        <a asp-area="" asp-controller="Products" asp-action="UserAddProducts" class="btn btn-success">About user Add products</a>
+    </div>
+    @*class="table"*@
+    <table class="table table-bordered table-striped" style="background-color:darkseagreen;">
+        <div class="col-sm-9 col-md-6 col-lg-8" style="background-color:pink;">
+            <div i>
+                <thead>
+                    <tr>
+                        <th>
+                            Category
+                        </th>
+                        <th>
+                            PriceUnit
+
+                        </th>
+
+                        <th>
+                            ProductionTime
+                        </th>
+                        <th>
+                            ProductItmsImage
+                        </th>
+                        <th>
+                            Count
+                        </th>
+                        <th>
+                            MeasureUnit
+                        </th>
+                        <th>
+                            Qualitys
+                        </th>
+
+                        <th>
+
+                            About Saler
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </div>
+        </div>
+        <tbody>
+            @foreach (var item in Model.Products)
+            {
+
+                <tr>
+                    <div class="form-group">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                        </td>
+                    </div>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PriceUnit)
+                    </td>
 
 
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductionTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductItmsImage.Exstention)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Count)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MeasureUnit.Unit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Qualitys.QualityName)
+                    </td>
+                    <td>
+                        @Html.Partial("UserDetails", item)
+                    </td>
+                </tr>}
+        </tbody>
+    </table>
+
+</span>
 
